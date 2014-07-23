@@ -1,15 +1,13 @@
 /*************************************************************************
-    > File Name: main.cpp
+    > File Name: graphbase.cpp
 # Author: Rainbow
 # mail: 443152178@qq.com
-    > Created Time: Wed 23 Jul 2014 05:57:57 PM CST
+    > Created Time: Wed 23 Jul 2014 06:08:03 PM CST
  ************************************************************************/
 
-#include<iostream>
-using namespace std;
+#include"graphbase.h"
 
-int main()
+bool GraphBase::isDirected()
 {
-	cout<<"hello world"<<endl;
-	return 0;
+	return bIsDirected;
 }
