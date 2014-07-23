@@ -6,7 +6,7 @@ LinkGraph::LinkGraph(unsigned int num):iVertexNum(num)
 	for(int i=1;i<num;i++){
 		pVertexHeads[i].value = 0;
 		pVertexHeads[i].to = i;
-		pVertexHeads->next = new Vertex{
+		pVertexHeads[i].next = new Vertex{
 			NIL,
 				NIL,
 				nullptr

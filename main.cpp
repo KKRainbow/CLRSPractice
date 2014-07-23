@@ -6,10 +6,21 @@
  ************************************************************************/
 
 #include<iostream>
+#include"linkgraph.h"
 using namespace std;
 
 int main()
 {
-	cout<<"hello world"<<endl;
+	LinkGraph a(5);
+	a.addEdge(1,4,1);
+	a.addEdge(1,5,3);
+	a.addEdge(2,4,2);
+	a.addEdge(4,5,2);
+	a.print();
+	a.deleteEdge(1,4);
+	cout<<endl;
+	a.print();
+	cout<<endl;
+	cout<<a.getValue(2,4)<<endl;
 	return 0;
 }

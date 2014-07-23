@@ -1,10 +1,11 @@
-OBJECTS=base.o link.o main.cpp
-CC=g++ -std=c++11
-main:$(OBJECTS)
-	$(CC) -o main $(OBJECTS) 
+OBJECTS=base.o link.o 
+CC=g++ -std=c++11 -g
+main:$(OBJECTS) main.cpp
+	$(CC) -o main $(OBJECTS) main.cpp 
+	make clean
 	
 base.o:graphbase.cpp
-	$(CC) -c -o base.o graphbase.cpp
+	$(CC) -c -o base.o graphbase.cpp 
 link.o:linkgraph.cpp
 	$(CC) -c -o link.o linkgraph.cpp
 
