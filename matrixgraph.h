@@ -1,20 +1,24 @@
-#ifndef LINKGRAPH_H
-#define LINKGRAPH_H
+#ifndef MatrixGraph_H
+#define MatrixGraph_H
+
+#define EMPTY 0
+
 #include"graphbase.h"
-#include"vertex.h"
-class LinkGraph : public GraphBase
+class MatrixGraph : public GraphBase
 {
 public:
-    LinkGraph(unsigned int num,bool isDirected);
+    MatrixGraph(unsigned int num,bool isDirected);
 	void addEdge(int from,int to,int value);
 	void deleteEdge(int from,int to);
 	int getValue(int from,int to);
 	void print();
 private:
 	unsigned int iVertexNum;
-	Vertex* pVertexHeads;
+	int *Matrix;
+	void setMatrixValue(int row,int column,int value);
+	int getMatrixValue(int row,int column);
 	void addSingleEdge(int from,int to,int value);
 	void deleteSingleEdge(int from,int to);
 };
 
-#endif // LINKGRAPH_H
+#endif // MatrixGraph_H

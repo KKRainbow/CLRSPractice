@@ -12,7 +12,7 @@ public:
 	virtual int getValue(int from,int to)=0;
 	virtual bool isDirected();
 	virtual void print()=0;
-private:
+protected:
 	bool bIsDirected;
 };
 #endif // GRAPHBASE_H

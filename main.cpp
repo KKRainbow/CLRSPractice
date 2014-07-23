@@ -7,11 +7,13 @@
 
 #include<iostream>
 #include"linkgraph.h"
+#include"matrixgraph.h"
+#define GRAPH MatrixGraph 
 using namespace std;
 
 int main()
 {
-	LinkGraph a(5);
+	GRAPH a(5,false);
 	a.addEdge(1,4,1);
 	a.addEdge(1,5,3);
 	a.addEdge(2,4,2);
