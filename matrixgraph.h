@@ -13,7 +13,6 @@ public:
 	int getValue(int from,int to);
 	void print();
 private:
-	unsigned int iVertexNum;
 	int *Matrix;
 	void setMatrixValue(int row,int column,int value);
 	int getMatrixValue(int row,int column);

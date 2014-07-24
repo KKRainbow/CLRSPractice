@@ -11,7 +11,6 @@ public:
 	int getValue(int from,int to);
 	void print();
 private:
-	unsigned int iVertexNum;
 	Vertex* pVertexHeads;
 	void addSingleEdge(int from,int to,int value);
 	void deleteSingleEdge(int from,int to);

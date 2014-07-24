@@ -1,8 +1,9 @@
 #include "matrixgraph.h"
 #include<iostream>
 using namespace std;
-MatrixGraph::MatrixGraph(unsigned int num,bool isDirected):iVertexNum(num)
+MatrixGraph::MatrixGraph(unsigned int num,bool isDirected)
 {
+	iVertexNum = num;
 	bIsDirected = isDirected;
 	Matrix = new int[num*num];
 }

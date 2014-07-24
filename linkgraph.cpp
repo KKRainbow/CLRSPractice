@@ -1,7 +1,8 @@
 #include "linkgraph.h"
 #include<iostream>
-LinkGraph::LinkGraph(unsigned int num,bool isDirected):iVertexNum(num)
+LinkGraph::LinkGraph(unsigned int num,bool isDirected)
 {
+	iVertexNum = num;
 	bIsDirected = isDirected;
 	pVertexHeads = new Vertex[num+1];
 	for(int i=1;i<num;i++){

@@ -11,3 +11,7 @@ bool GraphBase::isDirected()
 {
 	return bIsDirected;
 }
+int GraphBase::getVertexNum()
+{
+	return (int)iVertexNum;
+}
