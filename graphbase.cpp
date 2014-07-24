@@ -6,7 +6,10 @@
  ************************************************************************/
 
 #include"graphbase.h"
+GraphBase::GraphBase()
+{
 
+}
 bool GraphBase::isDirected()
 {
 	return bIsDirected;

@@ -3,16 +3,15 @@
 class GraphBase
 {
 public:
-    GraphBase()
-	{
-	
-	}
+    GraphBase();
 	virtual void addEdge(int from,int to,int value)=0;
 	virtual void deleteEdge(int from,int to)=0;
 	virtual int getValue(int from,int to)=0;
 	virtual bool isDirected();
 	virtual void print()=0;
 	int getVertexNum();
+	static const int NONEEDGE = 0;
+	static const int NONEVALUE = -1;
 protected:
 	unsigned int iVertexNum;
 	bool bIsDirected;

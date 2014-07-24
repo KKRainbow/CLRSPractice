@@ -1,7 +1,6 @@
 #ifndef MatrixGraph_H
 #define MatrixGraph_H
 
-#define EMPTY 0
 
 #include"graphbase.h"
 class MatrixGraph : public GraphBase

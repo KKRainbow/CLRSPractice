@@ -1,6 +1,6 @@
 #include "linkgraph.h"
 #include<iostream>
-LinkGraph::LinkGraph(unsigned int num,bool isDirected)
+LinkGraph::LinkGraph(unsigned int num,bool isDirected):GraphBase()
 {
 	iVertexNum = num;
 	bIsDirected = isDirected;
@@ -9,8 +9,8 @@ LinkGraph::LinkGraph(unsigned int num,bool isDirected)
 		pVertexHeads[i].value = 0;
 		pVertexHeads[i].to = i;
 		pVertexHeads[i].next = new Vertex{
-			NIL,
-				NIL,
+			NONEVALUE,
+				NONEEDGE,
 				nullptr
 		};
 	}
@@ -64,7 +64,7 @@ int LinkGraph::getValue(int from,int to){
 			return tmp->value;
 		tmp = tmp->next;
 	}
-	return NIL;
+	return NONEVALUE;
 }
 void LinkGraph::print()
 {

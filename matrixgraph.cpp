@@ -1,11 +1,13 @@
 #include "matrixgraph.h"
 #include<iostream>
+#include<cstring>
 using namespace std;
-MatrixGraph::MatrixGraph(unsigned int num,bool isDirected)
+MatrixGraph::MatrixGraph(unsigned int num,bool isDirected):GraphBase()
 {
 	iVertexNum = num;
 	bIsDirected = isDirected;
 	Matrix = new int[num*num];
+	memset(Matrix,NONEVALUE,num*num*(sizeof(int)));
 }
 void MatrixGraph::addEdge(int from,int to,int value)
 {
@@ -29,7 +31,7 @@ void MatrixGraph::addSingleEdge(int from,int to,int value)
 	setMatrixValue(from,to,value);
 }
 void MatrixGraph::deleteSingleEdge(int from,int to){
-	setMatrixValue(from,to,EMPTY);
+	setMatrixValue(from,to,NONEVALUE);
 }
 int MatrixGraph::getValue(int from,int to)
 {
