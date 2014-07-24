@@ -8,7 +8,7 @@
 #define GRAPHALGORITHMS_H
 #include"graphbase.h"
 
-void bfs(GraphBase &pGraph,int pSource,void pOpe(int));
+void bfs(GraphBase &pGraph,int pSource,void (*pOpe)(int));
 
 
 #endif

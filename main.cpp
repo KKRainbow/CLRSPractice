@@ -8,21 +8,29 @@
 #include<iostream>
 #include"linkgraph.h"
 #include"matrixgraph.h"
-#define GRAPH MatrixGraph 
+#include"graphalgorithms.h"
+//#define GRAPH LinkGraph
+#define GRAPH MatrixGraph
 using namespace std;
-
+void print(int);
 int main()
 {
-	GRAPH a(5,false);
-	a.addEdge(1,4,1);
-	a.addEdge(1,5,3);
-	a.addEdge(2,4,2);
-	a.addEdge(4,5,2);
-	a.print();
-	a.deleteEdge(1,4);
-	cout<<endl;
+	GRAPH a(6,true);
+	a.addEdge(1,2,1);
+	a.addEdge(1,4,3);
+	a.addEdge(2,5,2);
+	a.addEdge(3,5,2);
+	a.addEdge(3,6,2);
+	a.addEdge(4,2,2);
+	a.addEdge(5,4,2);
 	a.print();
 	cout<<endl;
 	cout<<a.getValue(2,4)<<endl;
+
+	bfs(a,1,print);
 	return 0;
+}
+void print(int a)
+{
+	cout<<a<<"  ";
 }

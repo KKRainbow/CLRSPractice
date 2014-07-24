@@ -6,8 +6,8 @@ LinkGraph::LinkGraph(unsigned int num,bool isDirected):GraphBase()
 	bIsDirected = isDirected;
 	pVertexHeads = new Vertex[num+1];
 	for(int i=1;i<num;i++){
-		pVertexHeads[i].value = 0;
-		pVertexHeads[i].to = i;
+		pVertexHeads[i].value = NONEVALUE;
+		pVertexHeads[i].to = NONEEDGE;
 		pVertexHeads[i].next = new Vertex{
 			NONEVALUE,
 				NONEEDGE,
@@ -41,13 +41,12 @@ void LinkGraph::addSingleEdge(int from,int to,int value){
 }
 void LinkGraph::deleteSingleEdge(int from,int to){
 	Vertex* tmp = pVertexHeads+from;
-	if(to!=from)
-		while(tmp->next!=nullptr){
-			if(tmp->next->to == to){
-				break;
-			}
-			tmp = tmp->next;
+	while(tmp->next!=nullptr){
+		if(tmp->next->to == to){
+			break;
 		}
+		tmp = tmp->next;
+	}
 	if(tmp->next==nullptr)return;
 	else{
 		auto del = tmp->next;
