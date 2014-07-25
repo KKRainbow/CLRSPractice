@@ -13,6 +13,7 @@
 #define GRAPH MatrixGraph
 using namespace std;
 void print(vertexforbfs);
+void printd(vertexfordfs);
 int main()
 {
 	GRAPH a(6,true);
@@ -28,9 +29,15 @@ int main()
 	cout<<a.getValue(2,4)<<endl;
 
 	bfs(a,1,print);
+	cout<<endl;
+	dfsNonRecursion(a,printd);
 	return 0;
 }
 void print(vertexforbfs v)
+{
+	cout<<v.value<<"  ";
+}
+void printd(vertexfordfs v)
 {
 	cout<<v.value<<"  ";
 }
