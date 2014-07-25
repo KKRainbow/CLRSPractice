@@ -113,7 +113,7 @@ void dfsRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs))
 {
 	int iVertexNum = pGraph.getVertexNum();
 	vertexfordfs* v = new vertexfordfs[iVertexNum+1];	
-	int time = 1;
+	int time = 0;
 	for(int i=1;i<=iVertexNum;i++)
 	{
 		v[i].value = i;
@@ -128,8 +128,36 @@ void dfsRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs))
 	}
 	
 }
-void dfsRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordfs),vertexfordfs* v,int time)
+void dfsRecursionVisit(GraphBase &pGraph,int current,void (*pOpe)(vertexfordfs),vertexfordfs* v,int &time)
 {
 	time++;
-	v[i].dist = 
+	v[current].dist = time;
+	v[current].color = Color::GREY;
+	int num = pGraph.getVertexNum();
+	for(int i=1;i<=num;i++)
+	{
+		if(v[i].color==Color::WHITE&&pGraph.getValue(current,i)!=GraphBase::NONEVALUE)
+		{
+			v[i].color = Color::GREY;
+			dfsRecursionVisit(pGraph,i,pOpe,v,time);
+		}
+	}
+	v[current].color = Color::BLACK;
+	time++;
+	v[current].finish = time;
+	pOpe(v[current]);
+}
+
+static list<int> * pLinkedlist;
+list<int> topologicalSort(GraphBase &pGraph)
+{
+	pLinkedlist = new list<int>;
+	dfsNonRecursion(pGraph,topologicalSortHelper);
+	list<int> temp = *pLinkedlist;
+	delete pLinkedlist;
+	return temp;
+}
+void topologicalSortHelper(vertexfordfs v)
+{
+	pLinkedlist->insert(pLinkedlist->begin(),v.value);
 }

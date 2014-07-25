@@ -2,7 +2,7 @@ OBJECTS=base.o link.o matrix.o algorithms.o
 CC=g++ -std=c++11 -g
 main:$(OBJECTS) main.cpp
 	$(CC) -o main $(OBJECTS) main.cpp 
-	make clean
+#	make clean
 	
 base.o:graphbase.cpp
 	$(CC) -c -o base.o graphbase.cpp 

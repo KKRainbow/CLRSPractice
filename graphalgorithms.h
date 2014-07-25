@@ -7,6 +7,7 @@
 #ifndef GRAPHALGORITHMS_H
 #define GRAPHALGORITHMS_H
 #include"graphbase.h"
+#include<list>
 enum Color
 {
 	GREY,
@@ -33,6 +34,8 @@ void bfs(GraphBase &pGraph,int pSource,void (*pOpe)(vertexforbfs));
 void dfsNonRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs));
 void dfsNonRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordfs),vertexfordfs* v,int &time);
 void dfsRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs));
-void dfsRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordfs),vertexfordfs* v,int time);
+void dfsRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordfs),vertexfordfs* v,int &time);
+std::list<int> topologicalSort(GraphBase &pGraph);
+void topologicalSortHelper(vertexfordfs v);
 
 #endif

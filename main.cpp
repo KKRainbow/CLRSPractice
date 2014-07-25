@@ -31,6 +31,15 @@ int main()
 	bfs(a,1,print);
 	cout<<endl;
 	dfsNonRecursion(a,printd);
+	cout<<endl;
+	dfsRecursion(a,printd);
+	cout<<endl;
+	list<int> l = topologicalSort(a);
+	for(auto i = l.begin();i!=l.end();i++)
+	{
+		cout<<*i<<"   ";
+	}
+	cout<<endl;
 	return 0;
 }
 void print(vertexforbfs v)
@@ -39,5 +48,6 @@ void print(vertexforbfs v)
 }
 void printd(vertexfordfs v)
 {
-	cout<<v.value<<"  ";
+	cout<<v.value<<":finish:"<<v.finish<<":discover:"<<v.dist<<"  ";
 }
+
