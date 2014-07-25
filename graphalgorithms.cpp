@@ -11,21 +11,16 @@
 #define INFINITE 99999999
 using namespace std;
 
-struct vertex
-{
-	int color;
-	int parent;
-	int dist;
-};
 
-void bfs(GraphBase &pGraph,int pSource,void (*pOper)(int))
+void bfs(GraphBase &pGraph,int pSource,void (*pOper)(vertexforbfs))
 {
 	int iVertexNum = pGraph.getVertexNum();
 	const int GREY = 0,BLACK = 1,WHITE = 2;
 	if(pSource<1||pSource>iVertexNum)return;
-	vertex* v = new vertex[iVertexNum+1];	
+	vertexforbfs* v = new vertexforbfs[iVertexNum+1];	
 	for(int i=1;i<=iVertexNum;i++)
 	{
+		v[i].value = i;
 		v[i].color = WHITE;
 		v[i].parent = 0;
 		v[i].dist = INFINITE;
@@ -38,7 +33,7 @@ void bfs(GraphBase &pGraph,int pSource,void (*pOper)(int))
 	while(!q.empty())
 	{
 		int u = q.front();
-		(*pOper)(u);
+		(*pOper)(v[u]);
 		q.pop();
 		for(int i=1;i<=iVertexNum;i++)
 		{

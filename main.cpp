@@ -12,7 +12,7 @@
 //#define GRAPH LinkGraph
 #define GRAPH MatrixGraph
 using namespace std;
-void print(int);
+void print(vertexforbfs);
 int main()
 {
 	GRAPH a(6,true);
@@ -30,7 +30,7 @@ int main()
 	bfs(a,1,print);
 	return 0;
 }
-void print(int a)
+void print(vertexforbfs v)
 {
-	cout<<a<<"  ";
+	cout<<v.value<<"  ";
 }

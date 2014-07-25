@@ -7,8 +7,15 @@
 #ifndef GRAPHALGORITHMS_H
 #define GRAPHALGORITHMS_H
 #include"graphbase.h"
+struct vertexforbfs 
+{
+	int value;
+	int color;
+	int parent;
+	int dist;
+};
 
-void bfs(GraphBase &pGraph,int pSource,void (*pOpe)(int));
+void bfs(GraphBase &pGraph,int pSource,void (*pOpe)(vertexforbfs));
 
 
 #endif
