@@ -40,6 +40,30 @@ int main()
 		cout<<*i<<"   ";
 	}
 	cout<<endl;
+	GRAPH b(8,true);
+	b.addEdge(1,2,1);
+	b.addEdge(2,3,1);
+	b.addEdge(2,6,1);
+	b.addEdge(2,5,1);
+	b.addEdge(3,7,1);
+	b.addEdge(3,4,1);
+	b.addEdge(4,3,1);
+	b.addEdge(4,8,1);
+	b.addEdge(5,1,1);
+	b.addEdge(5,6,1);
+	b.addEdge(6,7,1);
+	b.addEdge(7,6,1);
+	b.addEdge(7,8,1);
+	b.addEdge(8,8,1);
+	auto c = getStronglyConnectedComponent(b);
+	for(auto i = c.begin();i!=c.end();i++)
+	{
+		for(auto j=i->begin();j!=i->end();j++)
+		{
+			cout<<*j<<"   ";
+		}
+		cout<<endl;
+	}
 	return 0;
 }
 void print(vertexforbfs v)

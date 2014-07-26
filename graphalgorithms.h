@@ -8,6 +8,7 @@
 #define GRAPHALGORITHMS_H
 #include"graphbase.h"
 #include<list>
+#include<vector>
 enum Color
 {
 	GREY,
@@ -16,26 +17,26 @@ enum Color
 };
 struct vertexforbfs 
 {
-	int value;
+	int value = -1;
 	Color color;
 	int parent;
 	int dist;
 };
 struct vertexfordfs
 {
-	int value;
+	int value = -1;
 	Color color;
 	int parent;
 	int dist;
 	int finish;
 };
-
-void bfs(GraphBase &pGraph,int pSource,void (*pOpe)(vertexforbfs));
-void dfsNonRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs));
+vertexforbfs* bfs(GraphBase &pGraph,int pSource,void (*pOpe)(vertexforbfs));
+vertexfordfs* dfsNonRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs));
 void dfsNonRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordfs),vertexfordfs* v,int &time);
-void dfsRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs));
+vertexfordfs* dfsRecursion(GraphBase &pGraph,void (*pOpe)(vertexfordfs));
 void dfsRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordfs),vertexfordfs* v,int &time);
 std::list<int> topologicalSort(GraphBase &pGraph);
 void topologicalSortHelper(vertexfordfs v);
-
+std::list<std::vector<int>> getStronglyConnectedComponent(GraphBase& pGraph);
+GraphBase* getGraphTransposition(GraphBase&a);
 #endif
