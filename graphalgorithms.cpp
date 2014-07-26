@@ -75,13 +75,22 @@ void dfsNonRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordf
 	if(v[pSource].color == Color::WHITE)
 	{
 		s.push(pSource);
-		v[pSource].color = GREY;
 	}
 	while(!s.empty())
 	{
 		int u = s.top();
+		if(v[u].color == Color::BLACK)
+		{
+			s.pop();
+			continue;
+		}
+		if(v[u].color == Color::WHITE)
+		{
+			v[u].dist = ++time;
+			v[u].color = Color::GREY;
+		}
 		bool hasPushAllVertex = true;
-		for(int i = 1;i<=num;i++)
+		for(int i = num;i>=1;i--)
 		{
 			if(pGraph.getValue(u,i)==GraphBase::NONEVALUE)
 			{
@@ -91,7 +100,6 @@ void dfsNonRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordf
 			{
 				hasPushAllVertex = false;
 				s.push(i);
-				v[i].color = Color::GREY;
 				v[i].parent = u;
 			}
 		}
@@ -100,7 +108,7 @@ void dfsNonRecursionVisit(GraphBase &pGraph,int pSource,void (*pOpe)(vertexfordf
 			int top = s.top();
 			s.pop();
 			v[top].color = Color::BLACK;
-			v[top].dist = v[top].finish = ++time;
+			v[top].finish = ++time;
 			if(pOpe!=nullptr)(*pOpe)(v[top]);
 		}
 	}
